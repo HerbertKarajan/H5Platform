@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta id="GoH5ViewPort" name="viewport" content="width=320, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="renderer" content="webkit">
+    <title>
+        <%= workData.title %>
+    </title>
+    <meta name="keywords" content="<%= workData.about.keyWords %>">
+    <meta name="description" content="<%= workData.about.desc %>">
+    <link rel="stylesheet" type="text/css" href="/front/dist/css/goh5.min.css?ver=1.0.2">
+</head>
+
+<body>
+    <!--  缩略图 -->
+    <div class="shareImgWrap">
+        <img data-src="<%= workData.about.thumbnail %>" />
+    </div>
+    <!--  缩略图 -->
+    <!-- 主页面 -->
+    <div class="swiper-container" id="wrapAll">
+        <div class="swiper-wrapper">
+            <% workData.mainCode.pages.forEach(function(page){ %>
+            <div class="swiper-slide" style="<%- page.main.background.match(/img/) === null ? 'background-color: ' + page.main.background : 'background-image: url(' + page.main.background + ')'%>">
+                <div class="items_con all_center" style="width: 320px;height: 486px;">    
+                	<% page.items.forEach(function(item){ %>
+    				<div id="<%- item.id %>" class="<%- item.class %>" type="<%- item.type %>" style="<%- item.style %>" attr="<%= JSON.stringify(item.attr) %>">
+    					<%- item.content.replace(/src/ig,'data-src') %>
+    				</div>
+                	<% }) %>
+                </div>
+            </div>
+            <% }) %>
+        </div>
+    </div>
+    <!-- 主页面 -->
+    <!-- 箭头 -->
+    <div id="arrow"><img data-src="/front/dist/img/arrow.png"></div>
+    <!-- 箭头 -->
+    <!-- 加载 -->
+    <div class="loading_con">
+        <div class="all_center loading_center">
+            <div class="all_center">
+                <img src="/back/dist/img/loading.png">
+                <span>加载中</span>
+                <em>0%</em>
+            </div>
+        </div>
+    </div>
+    <!-- 加载 -->
+    <!-- 音乐 -->
+    <audio id="audio_ele" autoplay="autoplay" src="<%= workData.mainCode.wholeAttr.bgmusic %>"></audio>
+    <img class="audio_btn play" style="display: none;" src="/front/dist/img/music.png">
+    <!-- 音乐 -->
+    <script type="text/javascript">
+        var defaultConfig = <%- JSON.stringify(workData.setConfig) %>
+    </script>
+    <script type="text/javascript" src="/front/dist/js/vendor.min.js?ver=1.0.2"></script>
+    <script type="text/javascript" src="/front/dist/js/goh5.min.js?ver=1.0.2"></script>
+</body>
+
+</html>
