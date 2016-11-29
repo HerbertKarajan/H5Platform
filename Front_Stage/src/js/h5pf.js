@@ -36,8 +36,8 @@ var setConfig = {
 // 初始页面
 setConfig.initialSlide = defaultConfig.autoBackPrePage ? (utils.getCookie('initialSlide') ? (setConfig.loop ? Number(utils.getCookie('initialSlide')) - 1 : Number(utils.getCookie('initialSlide'))) : 0) : 0;
 
-var GoH5 = new Swiper('.swiper-container', setConfig);
-GoH5.on('slideChangeEnd', function(swiper) {
+var H5PF = new Swiper('.swiper-container', setConfig);
+H5PF.on('slideChangeEnd', function(swiper) {
 	if(defaultConfig.autoBackPrePage){
 	    utils.setCookie('initialSlide', swiper.activeIndex, 2);
 	}
@@ -45,10 +45,10 @@ GoH5.on('slideChangeEnd', function(swiper) {
 
 
 // for debug
-window.GoH5 = GoH5;
+window.H5PF = H5PF;
 window.utils = utils;
 window.$ = utils.$;
 
 
 
-module.exports = GoH5;
+module.exports = H5PF;

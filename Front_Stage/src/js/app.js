@@ -12,4 +12,4 @@ document.getElementById('GoH5ViewPort').setAttribute('content', 'width=320, init
 var load = require('./load.js');
 var music = require('./music.js');
 
-var GoH5 = require('./goh5.js');
+var H5PF = require('./h5pf.js');

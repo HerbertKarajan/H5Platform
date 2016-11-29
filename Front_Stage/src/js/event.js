@@ -1,6 +1,6 @@
 /*
  ************************************************
- * @author:luoye https://github.com/luoye-fe
+ * @author:Kajajan
  * @desc:event on/trigger/one/off
  * @time:2015.01.16
  ************************************************

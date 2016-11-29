@@ -1,6 +1,6 @@
 'use strict';
 var md5 = require('md5');
-var safeWord = '骆也最帅！'; // 哈哈哈
+var safeWord = 'Karajan！'; // 哈哈哈
 
 
 var login = function(req, res) {
